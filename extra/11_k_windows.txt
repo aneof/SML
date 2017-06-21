@@ -1,0 +1,9 @@
+fun windows k [] = [] 
+| windows k xs = let
+fun length [] = 0
+| length (x::xs) = 1 + (length xs)
+fun listify k [] = []
+| listify k (x::xs)= if (k>0) then x::(listify (k-1) xs) else []
+in
+if (k<=(length xs)) then (listify k xs)::(windows k (tl(xs))) else []
+end

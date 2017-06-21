@@ -1,0 +1,18 @@
+fun squares [] list = []
+|squares list [] = []
+|squares (x::x1::xs) (y::ys) = (x,x1)::(squares (x::xs) (y::ys))
+|squares [x] (y::ys) = squares ys ys
+
+fun tuple (x,y) z = (x,y,z)
+
+fun fill [] list1 list2 list3 = list3
+|fill ((x,x1)::xs) [] list2 list3 = fill xs list2 list2 list3
+|fill list list1 [] list3 = []
+|fill ((x,x1)::xs) (y::ys) list2 list3 =  if (x*x+x1*x1 = y*y) then fill xs list2 list2 ((tuple (x,x1) y)::list3) else fill ((x,x1)::xs) ys list2 list3
+
+fun pyth_triples [] = []
+|pyth_triples list = fill (squares list list) list list [];
+
+(*bgainei kai xwris tuple kai squares kateutheian se morfi x::x1::xs kai y::ys kai meta na sinexizeis me x::xs kai an meinei [x] na pas sto x1::xs*)
+
+

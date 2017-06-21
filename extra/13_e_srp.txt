@@ -1,0 +1,14 @@
+fun repeat [] (y::ys) list3 = repeat list3 (y::ys) list3
+| repeat [] [] list3 = true
+| repeat (x::xs) (y::ys) list3= if (x=y) then repeat xs ys list3 else false 
+| repeat list1 [] list3= false
+
+fun aux [] list1 list3 = list3
+| aux (x::xs) list1 list3 = if (repeat (List.rev(x::list3)) list1 (List.rev(x::list3)) = true) then (List.rev(x::list3)) else aux xs list1 (x::list3)
+
+fun srp [] = []
+| srp list = aux list list [] 
+ 
+
+
+

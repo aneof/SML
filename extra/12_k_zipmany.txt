@@ -1,0 +1,9 @@
+fun lister [] = []
+| lister (x::xs) = hd(x)::(lister xs)
+
+fun exit [] = false
+| exit (x::xs) = if (tl(x)=[]) then true else exit xs
+
+fun zipmany [] = [] 
+| zipmany (x::xs) = (lister (x::xs))::(if (exit (x::xs)=true) then [] else zipmany (map (fn x=> tl(x)) (x::xs))) 
+

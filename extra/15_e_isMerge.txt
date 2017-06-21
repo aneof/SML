@@ -1,0 +1,6 @@
+fun isMerge [] [] [] = true
+|isMerge list [] [] = false
+|isMerge [] list1 list2 = false
+|isMerge (x::xs) (y::ys) (z::zs) = if (x=y) then isMerge xs ys (z::zs) else if (x=z) then isMerge xs (y::ys) zs else false
+|isMerge (x::xs) [] (z::zs) = if (x=z) then isMerge xs [] zs else false
+|isMerge (x::xs) (y::ys) [] = if (x=y) then isMerge xs ys [] else false

@@ -1,0 +1,15 @@
+fun munge(f,g,ls) = let
+fun halve [] [] = []
+| halve (x::xs) (y::ys) = (x::y)::(halve xs ys)
+in
+halve (map f ls) (map g (List.rev(ls)))
+end
+
+
+fun munge (f,g,ls) = let
+		val sl = reverse(ls)
+		fun mng f g [] [] = []
+		|	mng f g (x::xs) (y::ys) = ((f(x))::(g(y))::(mng f g xs ys))
+	in
+		mng f g ls sl
+	end;

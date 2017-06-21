@@ -1,0 +1,13 @@
+datatype 'a tree = Empty | Node of 'a tree * 'a * 'a tree
+
+
+
+fun is_mirror Empty Empty = true
+|is_mirror t1 t2 = case (t1,t2) of
+ (Empty, Empty) => true
+| (Node(l1,_,r1) , Node(l2,_,r2)) => is_mirror l1 r2 andalso is_mirror r1 l2
+|(_,_) => false
+
+fun is_symmetric (Empty) = true
+|is_symmetric (Node(l,_,r)) = is_mirror l r 
+

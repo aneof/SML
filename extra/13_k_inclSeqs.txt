@@ -1,0 +1,8 @@
+fun inclSeqs [] = []
+| inclSeqs list = let
+fun aux [] (list1: int list list) list2= list1
+| aux (x::y::xs) list1 list2= if (y=x+1) then aux (y::xs) list1 (x::list2) else aux (y::xs) ((List.rev(x::list2))::list1) []
+| aux [x] list1 list2 = (List.rev(x::list2))::list1
+in
+List.rev(aux list [] [])
+end

@@ -1,0 +1,16 @@
+datatype 'a tree = Empty | Node of 'a tree * 'a * 'a tree
+
+
+fun is_AVL Empty = false
+| is_AVL t1 = case t1 of 
+Empty => false
+| Node(Empty,_,Empty) => true
+| Node(l1,_,Empty) => (case l1 of
+Empty => true
+| Node(Empty,_,Empty) => true
+| Node(l2,_,r2) => false)
+| Node(Empty,_,r1) => (case r1 of
+Empty => true
+| Node(Empty,_,Empty) => true
+| Node(l3,_,r3) => false)
+| Node(l1,_,r1) => is_AVL l1 andalso is_AVL r1
