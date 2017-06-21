@@ -1,8 +1,0 @@
-fun listify [] = []
-| listify list = let
-fun aux [] (list1:int list list) list2  = list1
-| aux (x::y::xs) list1 list2 = if (x<=y) then aux (y::xs) list1 (x::list2) else aux (y::xs) ((List.rev(x::list2))::list1) [] 
-| aux [x] list1 list2= aux [] ((List.rev(x::list2))::list1) [] 
-in
-List.rev(aux list [] []) 
-end
