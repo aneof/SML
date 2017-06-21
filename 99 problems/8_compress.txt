@@ -1,0 +1,9 @@
+fun compress [] = [] 
+| compress list = let 
+fun aux [] list1 = list1 
+| aux (x::y::xs) list1 = if (x=y) then aux (y::xs) list1 else aux (y::xs) (x::list1)
+|aux (x::xs) list1 = (x::list1) 
+in 
+rev (aux list []) 
+(* i rev apo to proigoumeno problima*)
+end

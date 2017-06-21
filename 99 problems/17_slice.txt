@@ -1,0 +1,8 @@
+
+fun slice [] k1 k2 = []
+| slice list k1 k2 = let
+fun aux [] list1 l1 l2 = list1
+| aux (x::xs) list1 l1 l2 = if (l1>0) then aux xs list1 (l1-1) l2 else if (l2>0) then aux xs (x::list1) l1 (l2-1) else list1
+in
+List.rev(aux list [] k1 k2) 
+end

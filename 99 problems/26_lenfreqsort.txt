@@ -1,0 +1,28 @@
+fun sortll [] [] =[[]]
+| sortll [] x = [x]
+| sortll ll [] = ll
+| sortll ll x = if length(x)<length(hd ll) then (x::ll) else ((hd ll)::(sortll (tl ll) x))
+;
+fun length_sort [[]] = [[]]
+| length_sort listlist = let
+  fun leso ll [] = ll
+  | leso [[]] (x::xs) = leso [x] xs
+  | leso (y::ys) (x::xs) = if length(x)<length(y) then (leso (sortll (y::ys) x) (xs)) else (leso (sortll (y::ys) x) (xs))
+ in 
+  leso [[]] listlist
+ end;
+val ls=length_sort [ ["a","b","c"], ["d","e"], ["f","g","h"], ["d","e"],["i","j","k","l"], ["m","n"], ["o"] ];
+fun mst max maxl t l [] = maxl(*length me megalyterh syxnothta*)
+| mst 0 0 0 0 (x::xs) = mst 0 (length(x)) 1 (length(x)) xs
+| mst max maxl t l (x::xs) = if (length(x)=l) then (if (t+1)>max then (mst (t+1) l (t+1) l xs) else (mst max maxl (t+1) l xs)) else (mst max maxl 1 (length(x)) xs)
+;
+val ms=mst 0 0 0 0 ls;
+
+fun frequency_sort [[]] = [[]]
+| frequency_sort listlist = let 
+  fun lqs [] list lno [] = list
+  | lqs lxs list lno [] = lqs [] list lno lxs
+  | lqs lxs list lno (x::xs) = if (length(x)=lno) then (lqs lxs (x::list) lno xs) else (if (length(x)>lno) then (lqs [] list (mst 0 0 0 0 (lxs@(x::xs))) (lxs@(x::xs))) else (lqs (x::lxs) list lno xs))  
+ in 
+  lqs [] [] (mst 0 0 0 0 ls) ls
+ end;

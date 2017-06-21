@@ -1,0 +1,2 @@
+fun insert_at k1 k2 [] = [k1]
+|insert_at k1 k2 (x::xs) = if (k2>0) then x::(insert_at k1 (k2-1) xs) else k1::x::xs

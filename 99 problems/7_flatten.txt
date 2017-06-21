@@ -1,0 +1,2 @@
+fun flatten xs =
+  foldl (fn(x,acc) => acc @ x) [] xs

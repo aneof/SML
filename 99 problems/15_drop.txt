@@ -1,0 +1,7 @@
+fun drop [] k = []
+| drop list k = let
+fun aux [] list1 k1 k2 = list1
+| aux (x::xs) list1 k1 k2 = if (k1>1) then aux xs (x::list1) (k1-1) k2 else aux xs list1 k2 k2
+in
+List.rev(aux list [] k k) 
+end

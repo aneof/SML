@@ -1,0 +1,7 @@
+fun split [] k = ([],[])
+| split list k = let
+fun aux1 [] list1 k1 = (List.rev(list1), [])
+| aux1 (x::xs) list1 k1 = if (k1>0) then aux1 xs (x::list1) (k1-1) else (List.rev(list1),(x::xs))
+in 
+aux1 list [] k
+end

@@ -1,0 +1,4 @@
+fun last_two [] = 0
+| last_two [x] = 0
+| last_two [x,y]=(x,y)
+| last_two (x::y::xs)=last_two (y::xs);

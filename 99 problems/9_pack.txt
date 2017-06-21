@@ -1,0 +1,9 @@
+
+fun pack [] = [] 
+| pack list = let 
+fun aux [] list1 (list2: int list list) = list2
+| aux (x::y::xs) list1 list2 = if (x=y andalso xs<>[]) then aux (y::xs) (x::list1) list2 else if (x=y andalso xs=[]) then (x::y::list1)::list2 else aux (y::xs) [] ((x::list1)::list2)  
+| aux (x::xs) list1 list2 = [x]::list2
+in
+rev (aux list [] [])
+end

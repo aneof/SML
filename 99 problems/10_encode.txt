@@ -1,0 +1,9 @@
+fun encode [] = [] 
+| encode list = let 
+fun aux [] list1 k = list1
+| aux (x::y::xs) list1 k = if (x=y andalso xs<>[]) then aux (y::xs) list1 (k+1) else if (x=y andalso xs=[]) then ((k+2,x)::list1) else aux (y::xs) ((k+1,x)::list1) 0
+| aux (x::xs) list1 k = ((k+1,x)::list1) 
+in
+rev (aux list [] 0)
+end
+

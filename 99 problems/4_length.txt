@@ -1,0 +1,7 @@
+fun length [] = 0
+|length list = let 
+fun aux [] (y:int) = y
+| aux (x::xs) y = aux xs (y+1)
+in
+aux list 0
+end

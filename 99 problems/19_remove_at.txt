@@ -1,0 +1,2 @@
+fun remove_at k [] = []
+|remove_at k (x::xs) = if (k=0) then xs else x::(remove_at (k-1) xs)

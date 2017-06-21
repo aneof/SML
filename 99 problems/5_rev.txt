@@ -1,0 +1,7 @@
+fun rev [] = []
+| rev list = let 
+fun aux [] list1 = list1
+| aux (x::xs) list1 = aux xs (x::list1)
+in
+aux list [] 
+end

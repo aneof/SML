@@ -1,0 +1,8 @@
+
+fun replicate [] k = [] 
+| replicate list k = let
+fun aux [] list1 k1 k2 = list1
+| aux (x::xs) list1 k1 k2 = if (k1>1) then aux (x::xs) (x::list1) (k1-1) k2 else aux xs (x::list1) k2 k2
+in
+rev (aux list [] k k)
+end

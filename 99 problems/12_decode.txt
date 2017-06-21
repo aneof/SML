@@ -1,0 +1,7 @@
+fun decode [] = []
+|decode list = let 
+fun aux [] list1= list1
+|aux ((x,y)::xs) list1 = if (x>0) then aux ((x-1,y)::xs) (y::list1) else aux xs list1
+in
+rev (aux list [])
+end

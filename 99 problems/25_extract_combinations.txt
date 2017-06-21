@@ -1,0 +1,9 @@
+fun combinations(k,xs) = 
+  let
+    fun compute_combinations(k,xs) = case (k,xs) of
+          (0,_) => [[]]
+        | (_,[]) => [[]]
+        | (k,x::xs') => map (fn y => x::y) (compute_combinations(k-1,xs'))@(compute_combinations(k,xs'))
+  in
+    List.filter (fn x => (length x) = k) (compute_combinations(k,xs))
+  end 

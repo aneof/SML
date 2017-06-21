@@ -1,0 +1,17 @@
+
+val r = Random.rand (1,1);
+
+fun rand_select [] k = [] 
+| rand_select list k = let
+val nextInt = Random.randRange (0,List.length(list)-1)
+val k1=nextInt r
+in
+if (k>0) then (at (k1+1) list)::(rand_select (remove_at k1 list) (k-1)) else []
+end
+
+
+
+
+(*fun at (x:int) [] = "none"
+| at x [y] = if (x=1) then y else "none"
+| at x (y::xs) = if (x=1) then y else at (x-1) xs;*)
